@@ -1,28 +1,26 @@
 import React from 'react'
-import { Text, TouchableOpacity, View,StyleSheet } from 'react-native'
+import { Text, TouchableOpacity, View,StyleSheet, StatusBar, SafeAreaView, FlatList } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons ,MaterialIcons,MultiBarButton} from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
-import BackGroundImage from '../component/BackGroundImage'
+
+import BackGroundImage from '../component/BackGround'
 import Footer from '../component/Footer'
 import Header from '../component/Header'
 import TopStatus from '../component/TopStatusBar'
 import More from '../navigation/More';
 import Reconcliation from '../navigation/Reconcliation';
 import MyDay from '../navigation/MyDay';
+import ItemList from '../component/ItemList';
 const Tab = createBottomTabNavigator();
 const Dash = () => {
   return (
-    <View>
-        <TopStatus/>
-        <Header/>
-        <BackGroundImage/>
-        <Text style={{position:"absolute",top:150}}>Item Details</Text>
-        <Footer/>
-    </View>
+    <>
+      <ItemList/>
+    </>
   )
 }
 function MyTabs() {
@@ -63,6 +61,7 @@ function MyTabs() {
           ),
         }}
       />
+      
       <Tab.Screen
         name="Suspend"
         component={Reconcliation}
@@ -87,13 +86,23 @@ function MyTabs() {
     </View>
   );
 }
-export default function CustomerDetails() {
-  return (
-    <View >
-    <NavigationContainer>
+export default function ItemDetails() {
+  return (    
+ <>
+ <View>
+  {/* <Header PageName={'SignIn'}/> */}
+  <NavigationContainer>
       <MyTabs />
+      
       </NavigationContainer>
-    </View>
+      
+      <View style={styles.Qrscanners}>
+        <MaterialIcons style={{alignSelf:"center",top:20}} name="qr-code-scanner" size={50} color={"white"} /> 
+      </View>
+ </View>
+
+
+    </>
   );
 }
 
@@ -107,5 +116,28 @@ const styles = StyleSheet.create({
     height:20,
     backgroundColor:"red",
     
-  }
+  },
+Qrscanners:{
+    width:100,
+    height:100,
+    position:'absolute',
+    backgroundColor:'#016C36',
+    borderRadius:50,
+    alignSelf:'center',
+    top:810,
+    
+   },
+container: {
+  flex: 1,
+  marginTop: StatusBar.currentHeight || 0,
+},
+item: {
+  backgroundColor: '#f9c2ff',
+  padding: 20,
+  marginVertical: 8,
+  marginHorizontal: 16,
+},
+title: {
+  fontSize: 32,
+},
 })

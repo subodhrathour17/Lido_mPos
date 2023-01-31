@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dimensions, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 // import { LinearGradient } from 'expo-linear-gradient';
 import { MainLogo,} from '../../assets/images';
 import TopStatus from '../component/TopStatusBar';
 import Checkbox from 'expo-checkbox';
-import BackGroundImage from '../component/BackGroundImage';
-const SignIn = () => {
+import BackGroundImage from '../component/BackGround';
+import { withNavigation } from 'react-navigation';
+const SignIn = ({navigation}) => {
+
+    const [check,setCheck]= useState(false)
   return (
 <View>
     <TopStatus/>
@@ -28,17 +31,20 @@ const SignIn = () => {
                     />
                     <Text style={styles.inputHeder}>Password</Text>
                     <View style={styles.checkbox} >
-                        <Checkbox title="Show"/> 
+                        <Checkbox  id="check" title="Show" />
+                  
                         <Text style={{marginLeft:15}}>Show</Text>
                     </View>
                     <TextInput
                         style={styles.inputStyle}
-                        placeholder="*******" //12345
+                        placeholder="*******"
                         placeholderTextColor="#8b9cb5"
                         keyboardType="default"
+                        inputMode="password"
                         />
                     <View style={styles.buttonDesign}>
-                    <TouchableOpacity style={styles.buttontext}>
+                    <TouchableOpacity style={styles.buttontext} onPress={()=> navigation.navigate('ItemDetails')}>
+
                         <Text style={styles.submitText}>Submit</Text>
                     </TouchableOpacity>
                     </View>
@@ -207,6 +213,6 @@ const styles =StyleSheet.create({
 })
 
 
-export default SignIn
+export default withNavigation(SignIn)
 
 

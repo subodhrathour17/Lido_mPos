@@ -16,7 +16,6 @@ const styles =StyleSheet.create({
       position:"absolute",
       width:Dimensions.get("window").width,
       top:70,
-     
     }
 })
 
