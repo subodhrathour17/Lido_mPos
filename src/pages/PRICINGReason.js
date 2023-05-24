@@ -9,6 +9,7 @@ import { TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import TittleLable from '../label/TittleLable';
 
 
 const PRICINGReason = ({navigation}) => {
@@ -17,11 +18,7 @@ const PRICINGReason = ({navigation}) => {
 
         <TopStatus/>
         <Header PageName={'PRICINGDiscountOffer'}/>
-        <View style={{backgroundColor:"#4DBD4B",height:50}}><Text style={{alignSelf:"center", fontSize:25,top:8}}>Select a Reason</Text></View>
-        
-        
-        
-
+        <TittleLable labledata={"Select a Reason"}/>
         <View style={styles.cards}>
         {/* <Text> PRICINGReason screen</Text> */}
             <View style={styles.cardDetails}>

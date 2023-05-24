@@ -7,6 +7,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import TittleLable from '../label/TittleLable';
 
 
 const PRICINGDiscountOffer = ({navigation}) => {
@@ -15,9 +16,7 @@ const PRICINGDiscountOffer = ({navigation}) => {
 
         <TopStatus/>
         <Header PageName={'Test'}/>
-        <View style={{backgroundColor:"#4DBD4B",height:50}}><Text style={{alignSelf:"center", fontSize:25,top:8}}>Select Discount or Offer</Text></View>
-
-        
+        <TittleLable labledata={"Select Discount or Offer"}/>
         
 
         <View style={styles.cards}>
